@@ -11,6 +11,8 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
+  FlatList,
+  Modal
 } from 'react-native';
 // import { PanGestureHandler, State } from "react-native-gesture-handler";
 // import {
@@ -53,8 +55,8 @@ export default function App() {
           color={colors.medBlue}
           onPress={() => Alert.alert('Button pressed')}
         /> */}
-        <PlayerCard player={'Chet Holmgren'} />
-        <PlayerCard player={'Jabari Smith'} />
+        <PlayerCard player={'Chet Holmgren'} ranking={1} />
+        <PlayerCard player={'Jabari Smith'} ranking={2} />
         {
           playerItems.map((player, index) => {
             return (
@@ -70,10 +72,16 @@ export default function App() {
         style={styles.inputWrapper}
       >
         <TextInput 
-          style={styles.input} 
+          style={styles.playerInput} 
           placeholder={'Add a player'} 
           value={player}
           onChangeText={text => setPlayer(text)} 
+        />
+        <TextInput 
+          style={styles.playerRankInput} 
+          placeholder={1} 
+          value={ranking}
+          onChangeText={number => setPlayer.ranking(number)} 
         />
         <RoundedButton title='+' onPress={() => handleAddPlayer()} />
       </KeyboardAvoidingView>
@@ -108,12 +116,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  input: {
+  playerInput: {
     paddingVertical: spacing.md,
     paddingHorizontal: spacing.md,
     marginLeft: spacing.md,
     borderRadius: spacing.md,
-    width: '80%',
+    width: '50%',
+    backgroundColor: colors.offWhite,
+  },
+  playerRankInput: {
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    marginLeft: spacing.md,
+    borderRadius: spacing.md,
+    width: '20%',
     backgroundColor: colors.offWhite,
   },
 });

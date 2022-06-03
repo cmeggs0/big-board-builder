@@ -9,9 +9,13 @@ const PlayerCard = (props) => {
         <View style={styles.item}>
             <View style={styles.itemLeft}>
                 <TouchableOpacity style={styles.square}></TouchableOpacity>
+                {/* <Text style={styles.itemText}>{props.player.index}</Text> */}
                 <Text style={styles.itemText}>{props.player}</Text>
             </View>
-            <View style={styles.movable}></View>
+            <View>
+                <Text style={styles.itemRight}>{props.ranking}</Text>
+            </View>
+            {/* <View style={styles.movable}></View> */}
         </View>
     )
 }
@@ -31,6 +35,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexWrap: 'wrap',
     },
+    itemRight:{
+        justifyContent: 'right'
+    },
     square: {
         width: 24,
         height: 24,
@@ -40,6 +47,7 @@ const styles = StyleSheet.create({
     },
     itemText: {
         maxWidth: '80%',
+        fontSize: fontSizes.md,
     },
     movable: {
 
