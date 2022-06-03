@@ -6,19 +6,24 @@ import {
   View,
   Button,
   SafeAreaView,
-  Alert
+  Alert,
+  KeyboardAvoidingView,
+  TouchableOpacity,
+  TextInput,
 } from 'react-native';
-import { PanGestureHandler, State } from "react-native-gesture-handler";
-import {
-  RecyclerListView,
-  DataProvider,
-  LayoutProvider
-} from "recyclerlistview";
-import Animated from "react-native-reanimated";
+// import { PanGestureHandler, State } from "react-native-gesture-handler";
+// import {
+//   RecyclerListView,
+//   DataProvider,
+//   LayoutProvider
+// } from "recyclerlistview";
+// import Animated from "react-native-reanimated";
 // import { NestableScrollContainer, NestableDraggableFlatList } from 'react-native-draggable-flatlist';
 import PlayerCard from './src/components/PlayerCard';
+import RoundedButton from './src/components/RoundedButton';
 import { colors } from './src/utils/colors';
 import { fontSizes, spacing } from './src/utils/sizes';
+import { Platform } from 'react-native-web';
 
 
 export default function App() {
@@ -33,7 +38,15 @@ export default function App() {
       /> */}
       <PlayerCard player={'Chet Holmgren'} />
       <PlayerCard player={'Jabari Smith'} />
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.inputWrapper}
+      >
+        <TextInput style={styles.input} placeholder={'Add a player'} />
+        {/* <RoundedButton /> */}
+      </KeyboardAvoidingView>
     </View>
+    
   );
 }
 

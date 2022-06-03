@@ -9,7 +9,7 @@ const PlayerCard = (props) => {
         <View style={styles.item}>
             <View style={styles.itemLeft}>
                 <TouchableOpacity style={styles.square}></TouchableOpacity>
-                <Text>{props.player}</Text>
+                <Text style={styles.itemText}>{props.player}</Text>
             </View>
             <View style={styles.movable}></View>
         </View>
@@ -21,14 +21,25 @@ const styles = StyleSheet.create({
         backgroundColor: colors.medBlue,
         padding: spacing.md,
         borderRadius: spacing.sm,
-        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        margin: spacing.sm,
     },
     itemLeft: {
-
+        flexDirection: 'row',
+        alignItems: 'center',
+        flexWrap: 'wrap',
     },
     square: {
         width: 24,
         height: 24,
+        backgroundColor: '#B8D8D8',
+        marginRight: spacing.sm,
+        borderRadius: 4,
+    },
+    itemText: {
+        maxWidth: '80%',
     },
     movable: {
 
