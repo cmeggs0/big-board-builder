@@ -4,8 +4,10 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.sectionTitle}>Welcome to Big Board Builder</Text>
+      <View style={styles.playerCard}>
+        <Text>Player Name goes here</Text>
+      </View>
     </View>
   );
 }
@@ -17,4 +19,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  playerCard: {
+
+  }
 });
