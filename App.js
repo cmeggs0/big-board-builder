@@ -1,5 +1,8 @@
+import { react } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { colors } from './src/utils/colors';
+
 
 export default function App() {
   return (
@@ -19,6 +22,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  sectionTitle: {
+    
+  }
   playerCard: {
 
   }
