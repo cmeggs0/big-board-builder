@@ -37,6 +37,12 @@ export default function App() {
     setPlayer(null);
   }
 
+  const deletePlayer = (index) => {
+    let playerItemsCopy = [...playerItems];
+    playerItemsCopy.splice(index, 1);
+    setPlayerItems(playerItemsCopy);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -51,7 +57,11 @@ export default function App() {
         <PlayerCard player={'Jabari Smith'} />
         {
           playerItems.map((player, index) => {
-            return <PlayerCard key={index} player={player} />
+            return (
+              <TouchableOpacity key={index} onPress={() => deletePlayer(index)}>
+                <PlayerCard player={player} />
+              </TouchableOpacity>
+            )
           })
         }
       </ScrollView>
